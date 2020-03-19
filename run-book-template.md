@@ -1,314 +1,313 @@
-# Run Book / System Operation Manual
+# Run Book / Руководство по эксплуатации системы
 
-See [`README.md`](README.md) for details of how to use this **Run Book / System Operation Manual** template.
+См. [`README.md`](README.md) для получения подробной информации о том, как использовать этот шаблон ** Run Book / Руководство по эксплуатации системы **.
 
-Copyright © 2014-2016 [Skelton Thatcher Consulting](https://skeltonthatcher.com/)
+Copyright © 2014-2016 [Скелтон Тэтчер Консалтинг] (https://skeltonthatcher.com/)
 
-Licenced under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
+Лицензировано в соответствии с [CC BY-SA 4.0] (https://creativecommons.org/licenses/by-sa/4.0/)! [CC BY-SA 4.0] (https://licensebuttons.net/l/by-sa/). 3,0 / 88x31.png)
 
 
-## Service or system overview
+## Сервис или обзор системы
 
-**Service or system name:** 
+** Сервис или название системы: **
 
-### Business overview
+### Обзор деятельности
 
-> What business need is met by this service or system? What expectations do we have about availability and performance?
+> Какая бизнес-потребность удовлетворяется этой службой или системой? Какие ожидания у нас есть в отношении доступности и производительности?
 
-_(e.g. Provides reliable automated reconciliation of logistics transactions from the previous 24 hours)_
+_ (например, обеспечивает надежную автоматическую сверку логистических операций за предыдущие 24 часа) _
 
-### Technical overview
+### Технический обзор
 
-> What kind of system is this? Web-connected order processing? Back-end batch system? Internal HTTP-based API? ETL control system?
+> Что это за система? Интернет-обработка заказов? Бэк-энд пакетная система? Внутренний HTTP-интерфейс API? Система управления ETL?
 
-_(e.g. Internal API for order reconciliation based on Ruby and RabbitMQ, deployed in Docker containers on Kubernetes)_
+_ (например, внутренний API для согласования заказов на основе Ruby и RabbitMQ, развернутый в контейнерах Docker в Kubernetes) _
 
-### Service Level Agreements (SLAs)
+### Соглашения об уровне обслуживания (SLA)
 
-> What explicit or implicit expectations are there from users or clients about the availability of the service or system?
+> Каковы явные или неявные ожидания от пользователей или клиентов в отношении доступности услуги или системы?
 
-_(e.g. Contractual 99.9% service availability outside of the 03:00-05:00 maintenance window)_
+_ (например, договорная 99,9% доступность обслуживания за пределами окна обслуживания 03:00-05:00) _
 
-### Service owner
+### Владелец сервиса
 
-> Which team owns and runs this service or system?
+> Какая команда владеет и управляет этим сервисом или системой?
 
-_(e.g. The *Sneaky Sharks* team (Bangalore) develops and runs this service: sneaky.sharks@company.com / *#sneaky-sharks* on Slack / Extension 9265)_
+_ (например, команда * Sneaky Sharks * (Бангалор) разрабатывает и запускает этот сервис: sneaky.sharks@company.com / * # sneaky-sharks * в Slack / Extension 9265) _
 
-### Contributing applications, daemons, services, middleware
+### Вклад приложений, демонов, сервисов, промежуточного программного обеспечения
 
-> Which distinct software applications, daemons, services, etc. make up the service or system? What external dependencies does it have?
+> Какие отдельные программные приложения, демоны, сервисы и т. Д. Составляют сервис или систему? Какие внешние зависимости у него есть?
 
-_(e.g. Ruby app + RabbitMQ for source messages + PostgreSQL for reconciled transactions)_
+_ (например, приложение Ruby + RabbitMQ для исходных сообщений + PostgreSQL для согласованных транзакций) _
 
-## System characteristics
+## Характеристики системы
 
-### Hours of operation
+### Часы работы
 
-> During what hours does the service or system actually need to operate? Can portions or features of the system be unavailable at times if needed?
+> В какие часы на самом деле должна работать служба или система? Могут ли части или функции системы быть недоступными в случае необходимости?
 
-#### Hours of operation - core features
+#### Часы работы - основные функции
 
-_(e.g. 03:00-01:00 GMT+0)_
+_ (например, 03:00-01:00 GMT + 0) _
 
-#### Hours of operation - secondary features
+#### Часы работы - второстепенные характеристики
 
-_(e.g. 07:00-23:00 GMT+0)_
+_ (например, 07:00-23:00 GMT + 0) _
 
-### Data and processing flows
+### Потоки данных и обработки
 
-> How and where does data flow through the system? What controls or triggers data flows?
+> Как и где данные проходят через систему? Что контролирует или запускает потоки данных?
 
-_(e.g. mobile requests / scheduled batch jobs / inbound IoT sensor data )_
+_ (например, мобильные запросы / запланированные пакетные задания / входящие данные датчика IoT) _
 
-### Infrastructure and network design
+### Инфраструктура и проектирование сетей
 
-> What servers, containers, schedulers, devices, vLANs, firewalls, etc. are needed?
+> Какие серверы, контейнеры, планировщики, устройства, виртуальные локальные сети, брандмауэры и т. Д. Необходимы?
 
-_(e.g. '10+ Ubuntu 14 VMs on AWS IaaS + 2 AWS Regions + 2 VPCs per Region + Route53')_
+_ (например, '10 + Ubuntu 14 виртуальных машин в AWS IaaS + 2 региона AWS + 2 VPC на регион + Route53 ') _
 
-### Resilience, Fault Tolerance (FT) and High Availability (HA)
+### Устойчивость, отказоустойчивость (FT) и высокая доступность (HA)
 
-> How is the system resilient to failure? What mechanisms for tolerating faults are implemented? How is the system/service made highly available?
+> Как система устойчива к сбоям? Какие механизмы для устранения ошибок реализованы? Как сделать систему / услугу доступной?
 
-_(e.g. 2 Active-Active data centres across two cities + two or more nodes at each layer)_
+_ (например, 2 Active-Active дата-центра в двух городах + два или более узлов на каждом уровне) _
 
-### Throttling and partial shutdown
+### Регулирование и частичное отключение
 
-> How can the system be throttled or partially shut down e.g. to avoid flooding other dependent systems? Can the throughput be limited to (say) 100 requests per second? etc. What kind of connection back-off schemes are in place?
+> Как можно регулировать или частично отключить систему, например, избежать флудинга других зависимых систем? Можно ли ограничить пропускную способность, скажем, до 100 запросов в секунду? и т. д. Какие существуют схемы отключения соединения?
 
-#### Throttling and partial shutdown - external requests
+#### Регулирование и частичное отключение - внешние запросы
 
-_(e.g. Commercial API gateway allows throttling control)_
+_ (например, коммерческий API-шлюз позволяет управлять регулированием) _
 
-#### Throttling and partial shutdown - internal components
+#### Регулирование и частичное отключение - внутренние компоненты
 
-_(e.g. Exponential backoff on all HTTP-based services + `/health` healthcheck endpoints on all services)_
+_ (например, экспоненциальный откат для всех служб на основе HTTP + конечные точки проверки работоспособности `/health` для всех служб) _
 
-### Expected traffic and load
+### Ожидаемый трафик и нагрузка
 
-> Details of the expected throughput/traffic: call volumes, peak periods, quiet periods. What factors drive the load: bookings, page views, number of items in Basket, etc.
+> Сведения об ожидаемой пропускной способности / трафике: объемы вызовов, пиковые периоды, периоды бездействия. Какие факторы влияют на загрузку: заказы, просмотры страниц, количество товаров в корзине и т. Д.
 
-_(e.g. Max: 1000 requests per second with 400 concurrent users - Friday @ 16:00 to Sunday @ 18:00, driven by likelihood of barbecue activity in the neighborhood)_
+_ (например, макс. 1000 запросов в секунду с 400 одновременными пользователями - пятница с 16:00 до воскресенья @ 18:00, обусловленная вероятностью проведения барбекю по соседству) _
 
-#### Hot or peak periods
-
-_
-
-#### Warm periods
+#### Горячие или пиковые периоды
 
 _
 
-#### Cool or quiet periods
+#### Теплые периоды
 
 _
 
-### Environmental differences
-
-> What are the main differences between Production/Live and other environments? What kinds of things might therefore not be tested in upstream environments?
-
-_(e.g. Self-signed HTTPS certificates in Pre-Production - certificate expiry may not be detected properly in Production)_
-
-### Tools
-
-> What tools are available to help operate the system?
-
-_(e.g. Use the `queue-cleardown.sh` script to safely cleardown the processing queue nightly)_
-
-## Required resources
-
-> What compute, storage, database, metrics, logging, and scaling resources are needed? What are the minimum and expected maximum sizes (in CPU cores, RAM, GB disk space, GBit/sec, etc.)?
-
-### Required resources - compute
-
-_(e.g. Min: 4 VMs with 2 vCPU each. Max: around 40 VMs)_
-
-### Required resources - storage
-
-_(e.g. Min: 10GB Azure blob storage. Max: around 500GB Azure blob storage)_
-
-### Required resources - database
-
-_(e.g. Min: 500GB Standard Tier RDS. Max: around 2TB Standard Tier RDS)_
-
-### Required resources - metrics
-
-_(e.g. Min: 100 metrics per node per minute. Max: around 6000 metrics per node per minute)_
-
-### Required resources - logging
-
-_(e.g. Min: 60 log lines per node per minute (100KB). Max: around 6000 log lines per node per minute (1MB))_
-
-### Required resources - other
-
-_(e.g. Min: 10 encryption requests per node per minute. Max: around 100 encryption requests per node per minute)_
-
-
-## Security and access control
-
-### Password and PII security
-
-> What kind of security is in place for passwords and Personally Identifiable Information (PII)? Are the passwords hashed with a strong hash function and salted?
-
-_(e.g. Passwords are hashed with a 10-character salt and SHA265)_
-
-### Ongoing security checks
-
-> How will the system be monitored for security issues?
-
-_(e.g. The ABC tool scans for reported CVE issues and reports via the ABC dashboard)_
-
-## System configuration
-
-### Configuration management
-
-> How is configuration managed for the system?
-
-_(e.g. CloudInit bootstraps the installation of Puppet - Puppet then drives all system and application level configuration except for the XYZ service which is configured via `App.config` files in Subversion)_
-
-### Secrets management
-
-> How are configuration secrets managed?
-
-_(e.g. Secrets are managed with Hashicorp Vault with 3 shards for the master key)_
-
-## System backup and restore
-
-### Backup requirements
-
-> Which parts of the system need to be backed up?
-
-_(e.g. Only the CoreTransactions database in PostgreSQL and the Puppet master database need to be backed up)_
-
-### Backup procedures
-
-> How does backup happen? Is service affected? Should the system be [partially] shut down first?
-
-_(e.g. Backup happens from the read replica - live service is not affected)_
-
-### Restore procedures
-
-> How does restore happen? Is service affected? Should the system be [partially] shut down first?
-
-_(e.g. The Booking service must be switched off before Restore happens otherwise transactions will be lost)_
-
-## Monitoring and alerting
-
-### Log aggregation solution
-
-> What log aggregation & search solution will be used?
-
-_(e.g. The system will use the existng in-house ELK cluster. 2000-6000 messages per minute expected at normal load levels)_
-
-### Log message format
-
-> What kind of log message format will be used? Structured logging with JSON? `log4j` style single-line output?
-
-_(e.g. Log messages will use log4j compatible single-line format with wrapped stack traces)_
-
-### Events and error messages
-
-> What significant events, state transitions and error events may be logged?
-
-_(e.g. IDs 1000-1999: Database events; IDs 2000-2999: message bus events; IDs 3000-3999: user-initiated action events; ...)_
-
-### Metrics
-
-> What significant metrics will be generated?
-
-_(e.g. Usual VM stats (CPU, disk, threads, etc.) + around 200 application technical metrics + around 400 user-level metrics)_
-
-### Health checks
-
-> How is the health of dependencies (components and systems) assessed? How does the system report its own health?
-
-#### Health of dependencies
-
-_(e.g. Use `/health` HTTP endpoint for internal components that expose it. Other systems and external endpoints: typically HTTP 200 but some synthetic checks for some services)_
-
-#### Health of service
-
-_(e.g. Provide `/health` HTTP endpoint: 200 --> basic health, 500 --> bad configuration + `/health/deps` for checking dependencies)_
-
-## Operational tasks
-
-### Deployment
-
-> How is the software deployed? How does roll-back happen?
-
-_(e.g. We use GoCD to coordinate deployments, triggering a Chef run pulling RPMs from the internal yum repo)_
-
-### Batch processing
-
-> What kind of batch processing takes place?
-
-_(e.g. Files are pushed via SFTP to the media server. The system processes up to 100 of these per hour on a `cron` schedule)_
-
-### Power procedures
-
-> What needs to happen when machines are power-cycled?
-
-_(e.g. *** WARNING: we have not investigated this scenario yet! ***)_
-
-### Routine and sanity checks
-
-> What kind of checks need to happen on a regular basis?
-
-_(e.g. All `/health` endpoints should be checked every 60secs plus the synthetic transaction checks run every 5 mins via Pingdom)_
-
-### Troubleshooting
-
-> How should troubleshooting happen? What tools are available?
-
-_(e.g. Use a combination of the `/health` endpoint checks and the `abc-*.sh` scripts for diagnosing typical problems)_
-
-## Maintenance tasks
-
-### Patching
-
-> How should patches be deployed and tested?
-
-#### Normal patch cycle
-
-_(e.g. Use the standard OS patch test cycle together with deployment via Jenkins and Capistrano)_
-
-#### Zero-day vulnerabilities
-
-_(e.g. Use the early-warning notifications from UpGuard plus deployment via Jenkins and Capistrano)_
-
-### Daylight-saving time changes
-
-> Is the software affected by daylight-saving time changes (both client and server)?
-
-_(e.g. Server clocks all set to UTC+0. All date/time data converted to UTC with offset before processing)_
-
-### Data cleardown
-
-> Which data needs to be cleared down? How often? Which tools or scripts control cleardown? 
-
-_(e.g. Use `abc-cleardown.ps1` run nightly to clear down the document cache)_
- 
-### Log rotation
-
-> Is log rotation needed? How is it controlled? 
-
-_(e.g. The Windows Event Log *ABC Service* is set to a maximum size of 512MB)_
-
-## Failover and Recovery procedures
-
-> What needs to happen when parts of the system are failed over to standby systems? What needs to during recovery? 
-
-### Failover
+#### Прохладные или тихие периоды
 
 _
 
-### Recovery
+### Экологические различия
+
+> Каковы основные различия между Production / Live и другими средами? Какие вещи, следовательно, не могут быть протестированы в вышестоящих средах?
+
+_ (например, самоподписанные сертификаты HTTPS в Pre-Production - истечение срока действия сертификата может быть неправильно обнаружено в Production) _
+
+### Инструменты
+
+> Какие инструменты доступны, чтобы помочь управлять системой?
+
+_ (например, используйте сценарий `queue-cleardown.sh` для безопасной очистки очереди обработки ночью) _
+
+## Требуемые ресурсы
+
+> Какие ресурсы для вычислений, хранения, базы данных, метрик, ведения журналов и масштабирования необходимы? Каковы минимальные и ожидаемые максимальные размеры (в ядрах ЦП, ОЗУ, дисковом пространстве ГБ, Гбит / с и т. Д.)?
+
+### Требуемые ресурсы - высиленительные мощности
+
+_ (например, мин: 4 виртуальных машины с 2 vCPU каждая. Макс: около 40 виртуальных машин) _
+
+### Требуемые ресурсы - хранилище
+
+_ (например, мин. 10 ГБ хранилища BLOB-объектов Azure. Макс .: около 500 ГБ хранилища BLOB-объектов Azure) _
+
+### Требуемые ресурсы - база данных
+
+_ (например, мин. 500 ГБ стандартного уровня RDS. Макс .: около 2 ТБ стандартного RDS уровня) _
+
+### Требуемые ресурсы - метрики
+
+_ (например, мин: 100 метрик на узел в минуту. Макс: около 6000 метрик на узел в минуту) _
+
+### Необходимые ресурсы - логирование
+
+_ (например, мин: 60 строк журнала на узел в минуту (100 КБ). Макс: около 6000 строк журнала на узел в минуту (1 МБ)) _
+
+### Требуемые ресурсы - прочее
+
+_ (например, мин: 10 запросов на шифрование на узел в минуту. Макс.: около 100 запросов на шифрование на узел в минуту) _
+
+
+## Безопасность и контроль доступа
+
+### Пароль и безопасность PII
+
+> Какая защита предусмотрена для паролей и личной информации (PII)? Хешируются ли пароли с сильной хеш-функцией и засоляются?
+
+_ (например, пароли хешируются 10-символьной солью и SHA265) _
+
+### Постоянные проверки безопасности
+
+> Как система будет контролироваться на предмет безопасности?
+
+_ (например, инструмент ABC выполняет поиск сообщений о проблемах CVE и отчетов через панель управления ABC) _
+
+## Конфигурация системы
+
+### Управление конфигурацией
+
+> Как конфигурация управляется для системы?
+
+_ (например, CloudInit загружает установку Puppet - Puppet затем управляет всей конфигурацией уровня системы и приложения, за исключением службы XYZ, которая настраивается через файлы `App.config` в Subversion) _
+
+### Секреты управления
+
+> Как управляются секреты конфигурации?
+
+_ (например, управление секретами осуществляется с помощью Hashicorp Vault с 3 сниппетами для мастер-ключа) _
+
+## Резервное копирование и восстановление системы
+
+### Требования к резервному копированию
+
+> Какие части системы необходимо сохранить?
+
+_ (например, для резервного копирования требуется только база данных CoreTransactions в PostgreSQL и основная база данных Puppet) _
+
+### Процедуры резервного копирования
+
+> Как происходит резервное копирование? Это влияет на обслуживание? Должна ли система [частично] быть отключена первой?
+
+_ (например, резервное копирование происходит из реплики чтения - на действующую службу это не влияет) _
+
+### Восстановление процедур
+
+> Как происходит восстановление? Это влияет на обслуживание? Должна ли система [частично] быть отключена первой?
+
+_ (например, служба бронирования должна быть отключена до восстановления, в противном случае транзакции будут потеряны) _
+
+## Мониторинг и оповещение
+
+### Решение для агрегации журналов
+
+> Какое решение для агрегации и поиска журналов будет использовано?
+
+_ (например, система будет использовать существующий внутренний кластер ELK. Ожидается 2000-6000 сообщений в минуту при нормальных уровнях нагрузки) _
+
+### Формат сообщения журнала
+
+> Какой формат сообщения журнала будет использоваться? Структурированная регистрация с JSON? однострочный вывод в стиле `log4j`?
+
+_ (например, сообщения журнала будут использовать однострочный формат, совместимый с log4j, с обернутыми следами стека) _
+
+### События и сообщения об ошибках
+
+> Какие значимые события, переходы состояний и события ошибок могут регистрироваться?
+
+_ (например, идентификаторы 1000-1999: события базы данных; идентификаторы 2000-2999: события шины сообщений; идентификаторы 3000-3999: события действий, инициированные пользователем; ...) _
+
+### Метрики
+
+> Какие значимые показатели будут генерироваться?
+
+_ (например, обычная статистика ВМ (ЦП, диск, потоки и т. д.) + около 200 технических метрик приложения + около 400 метрик уровня пользователя) _
+
+### Проверка здоровья
+
+> Как оценивается состояние зависимостей (компонентов и систем)? Как система сообщает о своем здоровье?
+
+#### Здоровье зависимостей
+
+_ (например, используйте `/health` конечную точку HTTP для внутренних компонентов, которые ее предоставляют. Другие системы и внешние конечные точки: обычно HTTP 200, но некоторые синтетические проверки для некоторых служб) _
+
+#### Здоровье службы
+
+_ (например, укажите конечную точку HTTP `/health`: 200 -> базовое состояние, 500 -> неверная конфигурация +` ​​/health/deps` для проверки зависимостей) _
+
+## Операционные задачи
+
+### Развертывание
+
+> Как развертывается программное обеспечение? Как происходит откат?
+
+_ (например, мы используем GoCD для координации развертываний, запуская запуск Chef, извлекая RPM из внутреннего репозитория yum) _
+
+### Пакетная обработка
+
+> Какой тип пакетной обработки имеет место?
+
+_ (например, файлы передаются через SFTP на медиасервер. Система обрабатывает до 100 таких файлов в час по расписанию cron) _
+
+### Процедуры электропитания
+
+> Что должно произойти, когда машины выключаются?
+
+_ (например, *** ПРЕДУПРЕЖДЕНИЕ: мы еще не исследовали этот сценарий! ***) _
+
+### Регулярные и санитарные проверки
+
+> Какие проверки должны проводиться на регулярной основе?
+
+_ (например, все конечные точки `/health` должны проверяться каждые 60 секунд, плюс искусственные проверки транзакций выполняются каждые 5 минут через Pingdom) _
+
+### Исправление проблем
+
+> Как должно происходить устранение неполадок? Какие инструменты доступны?
+
+_ (например, используйте комбинацию проверок конечной точки `/health` и сценариев` abc - *. sh` для диагностики типичных проблем) _
+
+## Задачи обслуживания
+
+### Установка патчей
+
+> Как следует устанавливать и тестировать патчи?
+
+#### Нормальный цикл патчей
+
+_ (например, используйте стандартный цикл тестирования исправлений ОС вместе с развертыванием через Jenkins и Capistrano) _
+
+#### Уязвимости нулевого дня
+
+_ (например, используйте уведомления раннего предупреждения от развертывания UpGuard plus через Jenkins и Capistrano) _
+
+### Летнее время меняется
+
+> Влияет ли на программное обеспечение изменение летнего времени (как клиента, так и сервера)?
+
+_ (например, сервер синхронизирует все настроенные на UTC+0. Все данные даты / времени, преобразованные в UTC со смещением перед обработкой) _
+
+### Очистка данных
+
+> Какие данные необходимо очистить? Как часто? Какие инструменты или сценарии контролируют очистку?
+
+_ (например, используйте `abc-cleardown.ps1`, запускаемый ночью, чтобы очистить кэш документов) _
+
+### Ротация журнала
+
+> Нужна ли ротация журналов? Как это контролируется?
+
+_ (например, в журнале событий Windows * ABC Service * установлен максимальный размер 512 МБ) _
+
+## Процедуры восстановления после отказа и восстановления
+
+> Что должно произойти, когда части системы переключаются на резервные системы? Что нужно во время восстановления?
+
+### Аварийное переключение
 
 _
 
-### Troubleshooting Failover and Recovery
+### Восстановление
 
-> What tools or scripts are available to troubleshoot failover and recovery operations?
+_
 
-_(e.g. Start with running `SELECT state__desc FROM sys.database__mirroring__endpoints` on the PRIMARY node and then use the scripts in the *db-failover* Git repo)_
+### Устранение неполадок при сбое и восстановлении
 
+> Какие инструменты или сценарии доступны для устранения неполадок при сбое и восстановлении?
+
+_ (например, запустите `SELECT state__desc FROM sys.database__mirroring__endpoints` на узле PRIMARY, а затем используйте сценарии в * db-failover * Git-репо) 

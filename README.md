@@ -4,8 +4,8 @@
 
 Есть два основных файла:
 
-1. `run-book-template.md` - сам шаблон (см. Ниже)
-2. `Диалоговый лист Run Book`https://github.com/SkeltonThatcher/run-book-template/releases/latest, PDF (300 КБ) с заголовками, взятыми из `run-book-template.md` и предназначен для печати на бумаге формата А1 для использования в командных условиях. _Диалоговый лист «Run Book» основан на работе над «Листами диалога» Аллана Келли] (https://www.infoq.com/articles/dialogue-sheets-retrospectives) и используется с его разрешения.
+1. [`run-book-template.md`](run-book-template.md) - сам шаблон (см. Ниже)
+2. [Диалоговый лист Run Book](https://github.com/SkeltonThatcher/run-book-template/releases/latest), PDF (300 КБ) с заголовками, взятыми из `run-book-template.md` и предназначен для печати на бумаге формата А1 для использования в командных условиях. _Диалоговый лист «Run Book» основан на работе над «Листами диалога» Аллана Келли] (https://www.infoq.com/articles/dialogue-sheets-retrospectives) и используется с его разрешения.
 
 ## Обзор
 

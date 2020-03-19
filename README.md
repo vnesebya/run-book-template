@@ -1,39 +1,38 @@
-# Run Book Template
+# Запустить шаблон книги
 
-A Run Book / Operations Manual template for modern software systems.
+Шаблон Run Book / Operations Manual для современных программных систем.
 
-There are two main files:
+Есть два основных файла:
 
-1. [`run-book-template.md`](run-book-template.md) - the template itself (see below)
-2. The [Run Book Dialogue Sheet](https://github.com/SkeltonThatcher/run-book-template/releases/latest), a PDF (300KB) with headings taken from the `run-book-template.md` and designed to be printed at A1 paper size for use in a team situation. _The Run Book Dialogue Sheet is based on the work on [Dialogue Sheets by Allan Kelly](https://www.infoq.com/articles/dialogue-sheets-retrospectives) and used with his permission._
+1. [`run-book-template.md`] (run-book-template.md) - сам шаблон (см. Ниже)
+2. [Диалоговый лист Run Book] (https://github.com/SkeltonThatcher/run-book-template/releases/latest), PDF (300 КБ) с заголовками, взятыми из `run-book-template.md` и предназначен для печати на бумаге формата А1 для использования в командных условиях. _Диалоговый лист «Run Book» основан на работе над «Листами диалога» Аллана Келли] (https://www.infoq.com/articles/dialogue-sheets-retrospectives) и используется с его разрешения.
 
-## Overview
+## Обзор
 
-The file `run-book-template.md` contains suggested checks and procedures for most non-trivial software systems that can be used as **a template to create a Run Book or System Operation Manual** (SOM). Treat the resulting information as a starting point for discussions about operational readiness. 
+Файл `run-book-template.md` содержит рекомендуемые проверки и процедуры для большинства нетривиальных программных систем, которые можно использовать в качестве ** шаблона для создания Runbook или руководства по эксплуатации системы ** (SOM). Рассматривайте полученную информацию в качестве отправной точки для обсуждения эксплуатационной готовности.
 
-In our experience, most interesting software systems will need engineers to address the majority of the points, if only to confirm that "this section definitely does not apply here" - a valuable realisation. Each section has a description to set the context and explain why it's needed. 
+По нашему опыту, наиболее интересным программным системам понадобятся инженеры для решения большинства вопросов, хотя бы для того, чтобы подтвердить, что «этот раздел определенно здесь не применим» - ценная реализация. В каждом разделе есть описание, чтобы установить контекст и объяснить, почему это необходимо.
 
-You'll likely get the best outcomes from having the **software development team own and drive the activities around the Run Book**, seeking input from Testers and Ops people to fill in gaps in knowledge. In practice, you'll want to automate many of the checks and procedures (rather than leaving them in a wiki), but remember: _discussion, not documentation_ is where the value lies in Run Book collaboration!  See [runbookcollab.info](http://runbookcollab.info/) for more details.
+Скорее всего, вы получите наилучшие результаты, если будете иметь собственную команду разработчиков программного обеспечения ** и будете руководить мероприятиями по Run Book **, запрашивая информацию от специалистов по тестированию и Ops, чтобы заполнить пробелы в знаниях. На практике вы захотите автоматизировать многие проверки и процедуры (вместо того, чтобы оставлять их в вики), но помните: в обсуждении Run Book стоит _discussion, а не то, что документация_! См. [Runbookcollab.info] (http://runbookcollab.info/) для более подробной информации.
 
-Have fun! _Matthew Skelton & Rob Thatcher_
+Веселиться! Матвей Скелтон и Роб Тэтчер
 
-> The book [Team Guide to Software Operability](http://operabilitybook.com/) has a chapter dedicated to the use of Run Book collaboration and the Run Book dialogue sheet, including details of how different teams use these techniques. 
-> <br/> 
-> <img src="Team-Guide-to-Software-Operability.png" width="200" />
+> В книге [Руководство для команд по работоспособности программного обеспечения] (http://operabilitybook.com/) есть глава, посвященная использованию совместной работы Run Book и диалоговому листу Run Book, в котором подробно рассказывается, как разные команды используют эти методы.
+> <br/>
+> <img src = "Team-Guide-to-Software-Operability.png" width = "200" />
 
-Copyright © 2014-2016 [Skelton Thatcher Consulting](https://skeltonthatcher.com/)
+Copyright © 2014-2016 [Скелтон Тэтчер Консалтинг] (https://skeltonthatcher.com/)
 
-Licenced under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
+Лицензировано в соответствии с [CC BY-SA 4.0] (https://creativecommons.org/licenses/by-sa/4.0/)! [CC BY-SA 4.0] (https://licensebuttons.net/l/by-sa/). 3,0 / 88x31.png)
 
-##  How to use the template
+## Как использовать шаблон
 
-1. Fork the repo
-1. Edit the file [`run-book-template.md`](run-book-template.md) 
-1. Add your own operational & runtime checks - send us a Pull Request if you think your new checks are useful to others!
-1. Remove (or comment with _N/A_) those sections that really do not apply in your case (but double-check first).
-1. Use the template as a way to [encourage discussion and collaboration between Devs and Ops people for building better systems](http://runbookcollab.info/).
-1. If some information is missing for one or more sections, indicate this clearly (e.g. *WARNING*). Knowing what you do not know is valuable.
-1. After you have validated the operational aspects with all teams involved, begin to automate the checks and procedures.
+1. Сделайте форк репозитария
+1. Отредактируйте файл [`run-book-template.md`] (run-book-template.md)
+1. Добавьте свои собственные проверки и проверки во время выполнения - отправьте нам запрос на извлечение, если вы считаете, что ваши новые проверки полезны для других!
+1. Удалите (или прокомментируйте _N / A_) те разделы, которые действительно не применяются в вашем случае (но сначала проверьте еще раз).
+1. Используйте шаблон как способ [поощрить обсуждение и сотрудничество между разработчиками (Dev) и командой эксплуатации (Ops) для создания более совершенных систем] (http://runbookcollab.info/).
+1. Если какая-либо информация отсутствует для одного или нескольких разделов, четко укажите это (например, * ПРЕДУПРЕЖДЕНИЕ *). Знание того, чего вы не знаете, ценно.
+1. После того, как вы проверили эксплуатационные аспекты со всеми вовлеченными командами, начните автоматизировать проверки и процедуры.
 
-**Expect to redesign parts of the software in order to better meet the operational needs outlined in this template!**
-
+** Ожидайте редизайн частей программного обеспечения для лучшего удовлетворения эксплуатационных потребностей, изложенных в этом шаблоне! **
